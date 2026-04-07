@@ -1,0 +1,1 @@
+npm install wagmi viem@2.x @tanstack/react-query connectkit lucide-react

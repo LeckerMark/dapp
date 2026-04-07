@@ -1,0 +1,121 @@
+{
+  "project_name": "Premium Crypto Wallet Transfer DApp",
+  "theme": "DARK",
+  "archetype": "4 (Swiss & High-Contrast - Adapted for Institutional Crypto)",
+  "emotional_tone": "Secure, Trustworthy, Precision, Objective",
+  "global_rules": [
+    "Follow 'The Anti-AI Designer' E1 persona. No generic UI. Total focus on high-fidelity, high-trust fintech aesthetic.",
+    "Do not use generic sans-serif fonts for headings. Use IBM Plex Sans exclusively.",
+    "Use JetBrains Mono exclusively for numerical data, wallet addresses, balances, and tx hashes.",
+    "Borders must be 1px solid, sharp or slightly rounded (max rounded-md). No soft bloated shadows.",
+    "All interactive elements MUST have explicit hover/focus states, particularly focus:ring-1 focus:ring-binance-gold.",
+    "Never use pure white (#FFFFFF) or pure black (#000000). Use the pre-configured --binance-black and --binance-text variables.",
+    "CTAs using --binance-gold MUST have --binance-black text to guarantee accessibility/contrast."
+  ],
+  "typography": {
+    "headings": {
+      "family": "'IBM Plex Sans', sans-serif",
+      "styles": {
+        "h1": "text-4xl md:text-5xl font-semibold tracking-tight text-[var(--binance-text)]",
+        "h2": "text-2xl font-medium tracking-tight text-[var(--binance-text)]",
+        "h3": "text-lg font-medium text-[var(--binance-text)]",
+        "labels": "text-xs uppercase tracking-[0.1em] text-[var(--binance-text-secondary)] font-medium"
+      }
+    },
+    "data_and_mono": {
+      "family": "'JetBrains Mono', monospace",
+      "styles": {
+        "wallet_address": "font-mono text-sm text-[var(--binance-text)] tracking-tight",
+        "large_balance": "font-mono text-4xl font-medium text-[var(--binance-text)]",
+        "small_amount": "font-mono text-sm text-[var(--binance-text-secondary)]"
+      }
+    },
+    "body": {
+      "family": "'IBM Plex Sans', sans-serif",
+      "styles": {
+        "base": "text-base text-[var(--binance-text-secondary)] leading-relaxed",
+        "small": "text-sm text-[var(--binance-text-secondary)]"
+      }
+    }
+  },
+  "colors": {
+    "background": "var(--binance-black) /* #0B0E11 */",
+    "surface": "var(--binance-dark) /* #181A20 */",
+    "surface_hover": "var(--binance-gray) /* #1E2329 */",
+    "border": "var(--binance-gray-light) /* #2B3139 */",
+    "primary": "var(--binance-gold) /* #F0B90B */",
+    "primary_hover": "var(--binance-gold-light)",
+    "primary_text": "var(--binance-black)",
+    "text_main": "var(--binance-text) /* #EAECEF */",
+    "text_muted": "var(--binance-text-secondary) /* #848E9C */",
+    "success": "var(--binance-green) /* #0ECB81 */",
+    "error": "var(--binance-red) /* #F6465D */"
+  },
+  "layout_and_spacing": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_spacing": "py-12 md:py-24",
+    "form_container": "max-w-md md:max-w-lg mx-auto w-full",
+    "card_padding": "p-6 md:p-8",
+    "grid_strategy": "Control Room Grid: High density, logical grouping, structured 1px borders between segments.",
+    "alignment": "Left-align data fields for easy scanning. Center main CTA if it takes full width."
+  },
+  "components": {
+    "header": {
+      "style": "Sticky top, z-50, backdrop-blur-xl bg-[var(--binance-black)]/80 border-b border-[var(--binance-gray-light)].",
+      "content": "Left: Shield Icon + 'CryptoTransfer Pro'. Right: Network Dropdown + Connect Wallet Button (Outlined default, Solid gold when connected)."
+    },
+    "transfer_card": {
+      "style": "bg-[var(--binance-dark)] border border-[var(--binance-gray-light)] rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.4)].",
+      "internal_layout": "Stack layout (flex-col) with gap-6. Use divider lines (border-t border-[var(--binance-gray-light)]) between major steps."
+    },
+    "inputs": {
+      "style": "bg-[var(--binance-gray)] border border-[var(--binance-gray-light)] rounded-md px-4 py-3 text-[var(--binance-text)] focus:border-[var(--binance-gold)] focus:ring-1 focus:ring-[var(--binance-gold)] transition-all font-mono",
+      "label_style": "text-xs uppercase tracking-widest text-[var(--binance-text-secondary)] mb-2 block"
+    },
+    "buttons": {
+      "primary": "w-full bg-[var(--binance-gold)] hover:bg-[var(--binance-gold-light)] text-[var(--binance-black)] font-semibold py-4 rounded-md transition-all active:scale-[0.99] flex justify-center items-center gap-2",
+      "secondary": "bg-[var(--binance-gray)] hover:bg-[var(--binance-gray-light)] text-[var(--binance-text)] border border-[var(--binance-gray-light)] py-2 px-4 rounded-md transition-all",
+      "max_button": "text-xs bg-[var(--binance-gray-light)] text-[var(--binance-text)] hover:text-[var(--binance-gold)] px-2 py-1 rounded transition-colors"
+    },
+    "progress_stepper": {
+      "style": "flex items-center justify-between mb-8 text-sm font-medium",
+      "active_step": "text-[var(--binance-gold)] border-b-2 border-[var(--binance-gold)] pb-1",
+      "inactive_step": "text-[var(--binance-text-secondary)] pb-1"
+    },
+    "status_modal": {
+      "style": "Use the provided .glass class for modal overlay. Centralize success/pending icon.",
+      "animations": "Use .animate-pulse-gold for pending, .animate-slide-up for modal entry."
+    }
+  },
+  "interactions_and_motion": {
+    "hover": "Subtle background lightening (bg-[var(--binance-dark)] to bg-[var(--binance-gray)]).",
+    "scan_effect": "Apply the custom `.scan-effect` class to the destination address box during validation.",
+    "shimmer": "Use `.animate-shimmer` on loading skeleton placeholders.",
+    "status_dots": "Use `.status-dot.status-pending` for awaiting confirmation, `.status-dot.status-success` for confirmed."
+  },
+  "media_and_assets": {
+    "background_image": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/3027cdfe-c051-408e-ac0e-b4644011a6dd/images/07e91234ec52a0f6a59ff25c4c39d6a93fb59a7e7ca3e19bb51ef7ed0cf51c73.png",
+      "category": "Hero Background / Body Pattern",
+      "instructions": "Set as body background with opacity-20 (or background-blend-mode: overlay) to provide a premium, deep tech crypto texture without distracting from the UI."
+    },
+    "icons": {
+      "library": "lucide-react",
+      "instructions": "Use Lucide icons strictly. ShieldCheck (Security/Logo), Wallet (Connect), ArrowRight (Transfer), Fingerprint (Auth vibe), CheckCircle2 (Success), ExternalLink (Explorer)."
+    }
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure APCA contrast passes, especially for --binance-gold text on --binance-black.",
+    "test_ids": "MUST add `data-testid` to all inputs, buttons, balance displays, and status text.",
+    "focus": "Keyboard focus rings MUST be visible (--binance-gold)."
+  },
+  "instructions_to_main_agent": [
+    "Load the provided `index.css` to leverage --binance custom properties and keyframe animations.",
+    "Build the dashboard focusing on the Transfer Wizard as the hero element.",
+    "Implement WalletConnect and MetaMask options using ethers.js or wagmi. Mock the actual transfer logic using a timeout if no real blockchain endpoint is provided.",
+    "Break the flow into: 1. Connect -> 2. Enter Address & Amount -> 3. Confirm (show mock security scan) -> 4. Transaction Sent (with mock tx hash linking to etherscan).",
+    "Strictly follow the typography layout: headings in IBM Plex Sans, all monetary values and addresses in JetBrains Mono.",
+    "Apply `data-testid` attributes on all critical paths (e.g., `data-testid=\"wallet-connect-btn\"`, `data-testid=\"transfer-amount-input\"`).",
+    "Use standard Shadcn UI primitive logic where applicable (Dialog for tx status, Select for networks), but heavily style them to match the Binance Dark theme specified in this file."
+  ]
+}

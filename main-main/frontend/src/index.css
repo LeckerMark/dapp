@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --binance-gold: #F0B90B;
+  --binance-gold-light: #FCD535;
+  --binance-gold-dark: #B7881E;
+  --binance-black: #0B0E11;
+  --binance-dark: #181A20;
+  --binance-gray: #1E2329;
+  --binance-gray-light: #2B3139;
+  --binance-text: #EAECEF;
+  --binance-text-secondary: #848E9C;
+  --binance-green: #0ECB81;
+  --binance-red: #F6465D;
+  --binance-blue: #1E88E5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--binance-black);
+  color: var(--binance-text);
+  background-image: url('https://static.prod-images.emergentagent.com/jobs/3027cdfe-c051-408e-ac0e-b4644011a6dd/images/07e91234ec52a0f6a59ff25c4c39d6a93fb59a7e7ca3e19bb51ef7ed0cf51c73.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 14, 17, 0.95) 0%, rgba(11, 14, 17, 0.85) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+code, .mono, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--binance-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--binance-gray-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--binance-gold);
+}
+
+/* Animations */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(240, 185, 11, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(240, 185, 11, 0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes border-pulse {
+  0%, 100% { border-color: var(--binance-gray-light); }
+  50% { border-color: var(--binance-gold); }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--binance-gray) 25%, var(--binance-gray-light) 50%, var(--binance-gray) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-border-pulse {
+  animation: border-pulse 2s ease-in-out infinite;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(24, 26, 32, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--binance-gold) 0%, var(--binance-gold-light) 50%, var(--binance-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Security scan effect */
+.scan-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-effect::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--binance-gold), transparent);
+  animation: scan-line 1.5s ease-in-out infinite;
+}
+
+/* Card with premium shadow */
+.premium-card {
+  background: var(--binance-dark);
+  border: 1px solid var(--binance-gray-light);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 10px 30px -5px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+/* Status indicators */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.3;
+  animation: pulse-gold 2s infinite;
+}
+
+.status-success { background: var(--binance-green); }
+.status-error { background: var(--binance-red); }
+.status-pending { background: var(--binance-gold); }
+.status-idle { background: var(--binance-text-secondary); }
+
+/* Focus ring */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--binance-black), 0 0 0 4px var(--binance-gold);
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+  background: var(--binance-dark);
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, var(--binance-gold), var(--binance-gray-light), var(--binance-gold));
+  border-radius: 13px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Glow button */
+.glow-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--binance-gold), transparent, var(--binance-gold));
+  border-radius: inherit;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.glow-button:hover::before {
+  opacity: 0.5;
+}
+
+/* Data row */
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--binance-gray-light);
+}
+
+.data-row:last-child {
+  border-bottom: none;
+}
+
+/* Step connector */
+.step-connector {
+  height: 2px;
+  flex: 1;
+  margin: 0 8px;
+  background: var(--binance-gray-light);
+  transition: background 0.3s;
+}
+
+.step-connector.active {
+  background: var(--binance-green);
+}
+
+/* Tailwind overrides */
+@layer base {
+  :root {
+    --background: 222 14% 4%;
+    --foreground: 220 13% 93%;
+    --card: 222 14% 8%;
+    --card-foreground: 220 13% 93%;
+    --popover: 222 14% 6%;
+    --popover-foreground: 220 13% 93%;
+    --primary: 45 96% 50%;
+    --primary-foreground: 222 14% 4%;
+    --secondary: 220 9% 16%;
+    --secondary-foreground: 220 13% 93%;
+    --muted: 220 9% 12%;
+    --muted-foreground: 220 9% 54%;
+    --accent: 45 96% 50%;
+    --accent-foreground: 222 14% 4%;
+    --destructive: 350 89% 60%;
+    --destructive-foreground: 220 13% 93%;
+    --border: 220 9% 18%;
+    --input: 220 9% 16%;
+    --ring: 45 96% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

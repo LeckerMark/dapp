@@ -1,0 +1,31 @@
+/* CryptoTransfer Pro - App CSS */
+.App {
+  min-height: 100vh;
+}
+
+/* Active button */
+.btn-active:active {
+  transform: scale(0.98);
+}
+
+/* Card lift on hover */
+.card-lift {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(240, 185, 11, 0.3);
+  color: var(--binance-text);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .mobile-full { width: 100%; }
+  .mobile-stack { flex-direction: column; }
+}
